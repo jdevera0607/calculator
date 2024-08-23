@@ -1,9 +1,20 @@
-const calculator = document.querySelector("form");
-const button = document.querySelector('input[type=["button"]');
+const calculator = document.getElementById("form");
+const display = document.getElementById("display");
 
 
-function checkValue(event){
-    console.log(event);
+
+function displayTo(input){
+  display.value += input; 
+}
+
+function clearDisplay(){
+    display.value=('')
+}
+function errorCheck(){
+   
+}
+function getInput(input){ 
+  displayTo(input);
 }
 
 // const add = function( x , y) {

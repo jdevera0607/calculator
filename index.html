@@ -7,34 +7,39 @@
     <link rel ="stylesheet" href="style.css">
 </head>
 <body>
-    <form>
-        <input type="button" value ="Clear"/>
-        <input type="button" value ="( )"/>
-        <input type="button" value ="%"/>
-        <input type="button" value ="/"/>
+    <form id="calculator">
+        <input id="display">
+        <input type="button" value ="Clear" onClick='clearDisplay()'/>
+        <input type="button" value ="( )" onClick="getInput('()')"/>  <!-- TODO: Create function for parenthesis-->
+        <input type="button" value ="%" onClick="getInput('%')" /> <!-- TODO: Create function for percentages-->
+        <input type="button" value ="/" onClick="getInput('/')"/>
 
-        <input type="button" value ="7"/>
-        <input type="button" value ="8"/>
-        <input type="button" value ="9"/>
-        <input type="button" value ="x"/>
+        <input type="button" value ="7" onClick="getInput('7')"/>
+        <input type="button" value ="8" onClick="getInput('8')"/>
+        <input type="button" value ="9" onClick="getInput('9')"/>
 
-        <input type="button" value ="4"/>
-        <input type="button" value ="5"/>
-        <input type="button" value ="6"/>
-        <input type="button" value ="-"/>
+        <input type="button" value ="*" onClick="getInput('*')" />
 
-        <input type="button" value ="1" onclick="checkValue(event)"/>
-        <input type="button" value ="2"/>
-        <input type="button" value ="3"/>
-        <input type="button" value ="+"/>
+        <input type="button" value ="4" onClick="getInput('4')"/>
+        <input type="button" value ="5" onClick="getInput('5')"/>
+        <input type="button" value ="6" onClick="getInput('6')"/>
 
-        <input type="button" value ="+/-"/>
-        <input type="button" value ="0"/>
-        <input type="button" value ="."/>
-        <input type="button" value ="="/>
+        <input type="button" value ="-" onClick="getInput('-')"/>
+
+        <input type="button" value ="1" onClick="getInput('1')"/>
+        <input type="button" value ="2" onClick="getInput('2')"/>
+        <input type="button" value ="3" onClick="getInput('3')"/>
+
+        <input type="button" value ="+" onClick="getInput('+')"/>
+
+        <input type="button" value ="+/-" onClick="getInput('+/-')"/> <!--TODO: Create function for positive or negative numbers-->
+        <input type="button" value ="0" onClick="getInput('0')"/>
+        <input type="button" value ="." onClick="getInput('.')"/>  <!--TODO: Create function decimal points/floating numbers-->
+        <input type="button" value ="=" onClick="calculate()"/> 
 
     </form>
-
+<script src ="main.js">
+</script>
     
 </body>
 </html>

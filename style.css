@@ -19,3 +19,11 @@ input[type=button]{
     height:50px;
     border-radius: 10px;
 }
+#display{
+    justify-content: center;
+    align-items: start;
+    display:flex;
+    width:200px;
+    height:25px;
+   margin-bottom: 10px;
+}
