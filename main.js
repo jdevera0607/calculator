@@ -1,21 +1,52 @@
-const calculator = document.getElementById("form");
-const display = document.getElementById("display");
 
+const calculator = document.querySelector('#calculator');
+const display = document.querySelector(".display");
 
+const numbers = document.querySelectorAll('.number');
+const clearButton = document.querySelector('.clear');
 
-function displayTo(input){
-  display.value += input; 
+const operationButtons = document.querySelectorAll('.operation');
+const previousOperand = document.querySelector('.previousOperand');
+const currentOperand = document.querySelector('.currentOperand');
+
+const calculate = document.querySelector('.equals');
+ 
+currentOperand.textContent = '';
+previousOperand.textContent = '';
+
+numbers.forEach((number) => {
+    number.addEventListener('click', () => {
+        numInput = number.textContent;
+        // currentOperand.textContent += numInput;
+        getInput(numInput);
+
+    });
+});
+
+function getInput(input){
+    currentOperand.textContent += numInput;
 }
 
-function clearDisplay(){
-    display.value=('')
+clearButton.addEventListener('click', () => {
+    currentOperand.textContent = '';
+});
+
+operationButtons.forEach((operation) => {
+    operation.addEventListener('click', () => {
+       operationInput = operation.textContent;
+        getOperation(operationInput)
+    });
+});
+
+function getOperation(selectedOperation){
+    currentOperand.append(selectedOperation);
 }
-function errorCheck(){
-   
+calculate.addEventListener('click', calculation);
+
+function calculation(){
+
 }
-function getInput(input){ 
-  displayTo(input);
-}
+
 
 // const add = function( x , y) {
 // 	return x + y
