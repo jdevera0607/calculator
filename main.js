@@ -5,7 +5,7 @@ const display = document.querySelector(".display");
 const numbers = document.querySelectorAll('.number');
 const clearButton = document.querySelector('.clear');
 
-const operationButtons = document.querySelectorAll('.operation');
+const operations = document.querySelectorAll('.operation');
 const previousOperand = document.querySelector('.previousOperand');
 const currentOperand = document.querySelector('.currentOperand');
 
@@ -23,7 +23,7 @@ numbers.forEach((number) => {
     });
 });
 
-function getInput(input){
+function getInput(){
     currentOperand.textContent += numInput;
 }
 
@@ -31,20 +31,33 @@ clearButton.addEventListener('click', () => {
     currentOperand.textContent = '';
 });
 
-operationButtons.forEach((operation) => {
+operations.forEach((operation) => {
     operation.addEventListener('click', () => {
        operationInput = operation.textContent;
-        getOperation(operationInput)
+        getOperation(operationInput);
     });
 });
 
-function getOperation(selectedOperation){
-    currentOperand.append(selectedOperation);
+function getOperation(){
+    previousOperand.textContent = currentOperand.textContent;
+    currentOperand.textContent = '';
+    operations.textContent = operationInput;
+  
+
 }
 calculate.addEventListener('click', calculation);
 
-function calculation(){
 
+function calculation(){
+const x = parseFloat(previousOperand.textContent);
+const y = parseFloat(currentOperand.textContent);
+console.log(x + y)
+// y = currentOperand.textContent;
+// chosenOperation = operations.textContent;
+
+
+// op = operationButtons;
+// console.log(op);
 }
 
 
