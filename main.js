@@ -14,9 +14,9 @@ const calculate = document.querySelector('.equals');
 currentOperand.textContent = '';
 previousOperand.textContent = '';
 
-numbers.forEach((number) => {
-    number.addEventListener('click', () => {
-        numInput = number.textContent;
+numbers.forEach((number) => {                               //For each number button that is pressed, the text content is stored
+    number.addEventListener('click', () => {                //and calls getInput function and passes the input stored as an argument
+        numInput = number.textContent;                      
         // currentOperand.textContent += numInput;
         getInput(numInput);
 
@@ -42,7 +42,6 @@ function getOperation(){
     previousOperand.textContent = currentOperand.textContent;
     currentOperand.textContent = '';
     operations.textContent = operationInput;
-  
 
 }
 calculate.addEventListener('click', calculation);
@@ -51,7 +50,27 @@ calculate.addEventListener('click', calculation);
 function calculation(){
 const x = parseFloat(previousOperand.textContent);
 const y = parseFloat(currentOperand.textContent);
-console.log(x + y)
+const z = operations.textContent;
+
+
+if(operations.textContent == "+"){
+    currentOperand.textContent = x + y;
+    previousOperand.textContent = '';
+}
+if(operations.textContent == "x"){
+    currentOperand.textContent = x * y;
+    previousOperand.textContent = '';
+}
+if(operations.textContent == "/"){
+    currentOperand.textContent == x / y;
+    previousOperand.textContent = '';
+}
+if(operations.textContent == '-'){
+    let result = x - y;
+    currentOperand.textContent = result;
+    previousOperand.textContent = '';
+}
+
 // y = currentOperand.textContent;
 // chosenOperation = operations.textContent;
 
