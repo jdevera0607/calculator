@@ -11,28 +11,28 @@ const currentOperand = document.querySelector('.currentOperand');
 
 const calculate = document.querySelector('.equals');
  
-currentOperand.textContent = '';
-previousOperand.textContent = '';
+currentOperand.textContent.placeholder = '0';
+previousOperand.textContent.placeholder = '0';
 
 numbers.forEach((number) => {                               //For each number button that is pressed, the text content is stored
     number.addEventListener('click', () => {                //and calls getInput function and passes the input stored as an argument
         numInput = number.textContent;                      
-        // currentOperand.textContent += numInput;
         getInput(numInput);
 
     });
 });
 
 function getInput(){
-    currentOperand.textContent += numInput;
+    currentOperand.textContent += numInput;                 //Stores the input number as text content
 }
 
-clearButton.addEventListener('click', () => {
-    currentOperand.textContent = '';
+clearButton.addEventListener('click', () => {               //Clears input numbers
+    currentOperand.textContent.placeholder = '0';
 });
 
-operations.forEach((operation) => {
+operations.forEach((operation) => {                         //Stores operation 
     operation.addEventListener('click', () => {
+        operations.disabled = true;
        operationInput = operation.textContent;
         getOperation(operationInput);
     });
@@ -48,77 +48,28 @@ calculate.addEventListener('click', calculation);
 
 
 function calculation(){
-const x = parseFloat(previousOperand.textContent);
-const y = parseFloat(currentOperand.textContent);
+let x = parseFloat(previousOperand.textContent)
+let y = parseFloat(currentOperand.textContent)
 const z = operations.textContent;
+    if(!currentOperand.textContent || !previousOperand.textContent || !operations.textContent){
+        alert("Please pick an operand or operator!");
+    }
 
-
-if(operations.textContent == "+"){
-    currentOperand.textContent = x + y;
-    previousOperand.textContent = '';
+    if(operations.textContent == "+"){
+        currentOperand.textContent = x + y;
+        previousOperand.textContent = x;
+    }
+    if(operations.textContent == "x"){
+        currentOperand.textContent = (x * y);
+        previousOperand.textContent = x;
+    }
+    if(operations.textContent == "/"){
+        currentOperand.textContent = parseFloat(x)/parseFloat(y);
+        previousOperand.textContent = x;
+    }
+    if(operations.textContent == '-'){
+        let result = x - y;
+        currentOperand.textContent = result;
+        previousOperand.textContent = x;
+    }
 }
-if(operations.textContent == "x"){
-    currentOperand.textContent = x * y;
-    previousOperand.textContent = '';
-}
-if(operations.textContent == "/"){
-    currentOperand.textContent == x / y;
-    previousOperand.textContent = '';
-}
-if(operations.textContent == '-'){
-    let result = x - y;
-    currentOperand.textContent = result;
-    previousOperand.textContent = '';
-}
-
-// y = currentOperand.textContent;
-// chosenOperation = operations.textContent;
-
-
-// op = operationButtons;
-// console.log(op);
-}
-
-
-// const add = function( x , y) {
-// 	return x + y
-// };
-
-// const subtract = function(x , y) {
-// 	return x - y
-// };
-
-// const sum = function(array) {
-//   let result = 0;
-// 	for(let i = 0; i < array.length; i++){
-//     result += array[i];
-//   }
-//   return result;
-// };
-
-// const multiply = function(array) {
-//   let result = 1;
-//   for(let i = 0; i < array.length; i++){
-//     result *=array[i];
-//   }
-//   return result
-// };
-
-// const power = function(x , y) {
-// return x ** y;
-// };
-
-// const factorial = function(n) {
-//   result = 1;
-// 	if (n === 0){
-//     return 1;
-//   }
-//   while(n > 1) {
-//     result *= n;
-//      n--;
-   
-//   }
-//  return result;
-// };
-
-
